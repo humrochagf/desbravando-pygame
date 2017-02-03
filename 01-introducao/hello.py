@@ -16,7 +16,7 @@ pygame.display.set_caption('Olá mundo')
 # preenchendo a tela com a cor preta
 screen.fill([0, 0, 0])
 
-# copiando o buffer para a tela
+# atualizando a tela
 pygame.display.flip()
 
 # esperando 5 segundos antes de finalizar o programa
