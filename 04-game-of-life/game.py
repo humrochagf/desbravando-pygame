@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 def cell_check(section):
     '''
     Executa as regras do game of life em um recorte 3x3 para
@@ -45,12 +46,11 @@ def get_section(matrix, row, col):
     # da área a ser analizada
     section = [[0 for _ in range(3)] for _ in range(3)]
 
-    # percorre as redondezas da célula de posição row x col copiando seu
-    # valor para section exceto quando ultrapassa a borda
+    # percorre as redondezas da célula de posição row x col
+    # copiando seu valor para section
     for sec_r, r in enumerate(range(row-1, row+2)):
         for sec_c, c in enumerate(range(col-1, col+2)):
-            if r >= 0 and c >= 0 and r < 50 and c < 50:
-                section[sec_r][sec_c] = matrix[r][c]
+            section[sec_r][sec_c] = matrix[r % 50][c % 50]
 
     # devolve o recorte 3x3 do plano
     return section
