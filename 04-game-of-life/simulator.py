@@ -57,8 +57,9 @@ def draw_matrix(matrix):
         for c, cell in enumerate(row):
             if cell:
                 # caso a célula esteja viva, a pinte de branco
-                pygame.draw.rect(screen, (255, 255, 255),
-                                 (11*c, 11*r, 10, 10))
+                pygame.draw.rect(
+                    screen, (255, 255, 255), (11*c, 11*r, 10, 10)
+                )
 
 
 # define a seed como um dos valores de exemplo do começo
