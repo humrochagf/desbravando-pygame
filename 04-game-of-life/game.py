@@ -7,29 +7,29 @@ def cell_check(section):
     saber o estado da célula central
     '''
     # contador de vizinhos
-    neighbours = 0
+    neighbors = 0
     # referência para o centro do recorte
     center = section[1][1]
 
     # somando todos os elementos do grupo
     for row in section:
         for cell in row:
-            neighbours += cell
+            neighbors += cell
 
     # removendo o valor da célula central para que sobre somente
     # a soma dos vizinhos
-    neighbours -= center
+    neighbors -= center
 
     # aplicando as regras do game of life
     # note que a regra dois não precisa ser ativamente aplicada, pois
     # ela não altera o estado da célula avaliada
-    if neighbours <= 1:
+    if neighbors <= 1:
         # menos de dois vizinhos a célula central morre por baixa população
         center = 0
-    elif neighbours == 3:
+    elif neighbors == 3:
         # exatamente três a célula nasce por reprodução
         center = 1
-    elif neighbours >= 4:
+    elif neighbors >= 4:
         # mais que três a célula morre de super população
         center = 0
 
@@ -39,8 +39,8 @@ def cell_check(section):
 
 def get_section(matrix, row, col):
     '''
-    Extrai um recorte 3x3 em um plano tratando as extremidades do plano
-    como células sempre mortas
+    Extraí um recorte da vizinhança 3x3 em um plano
+    dada a coordenada da célula central
     '''
     # monta um plano 3x3 somente com células mortas para fazer uma cópia
     # da área a ser analizada
